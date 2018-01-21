@@ -1,6 +1,6 @@
 body {
     color: #000000;
-    background: #272423;
+    background: #fff;
     font-family: Arial;
     font-size: 12px;
 }
@@ -21,4 +21,30 @@ a { color: #fff;
     a:focus {
     color:#808080;}
 
-  
+  .photo {
+      border: 0px solid #000;
+      background: pink;
+      width: 700px;
+      text-align:center;
+      float: right;
+      margin: 0 3em;
+      padding: 2em;
+      border-radius:1em;
+  }
+.container-fluid{
+    padding: 2em;
+    margin: auto;
+}
+h1 {
+    color: darkgoldenrod;
+    font-family: arial, sans-serif;
+    font-size: 3em;
+    font-weight: bold;
+    margin-top: 0px;
+    text-transform:uppercase;
+}
+
+.myCarousel {
+    padding: 2em;
+    margin: auto;
+}
