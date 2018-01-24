@@ -31,9 +31,9 @@ a { color: #fff;
       padding: 2em;
       border-radius:1em;
   }
-.container-fluid{
-    padding: 2em;
-    margin: auto;
+.container {
+    padding: .5em;
+    margin: .5em;
 }
 h1 {
     color: darkgoldenrod;
@@ -42,9 +42,4 @@ h1 {
     font-weight: bold;
     margin-top: 0px;
     text-transform:uppercase;
-}
-
-.myCarousel {
-    padding: 2em;
-    margin: auto;
 }
