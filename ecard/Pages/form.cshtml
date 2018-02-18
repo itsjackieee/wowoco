@@ -1,58 +1,80 @@
 ﻿@page
-@model formModel
-@*<form>
-        Friend's name:<br>
-        <input type="text" name="friendname"><br><br>
-        Friend's E-mail: <br />
-        <input type="email" name="email"><br><br>
-        Subject:<br>
-        <input type="text" name="subject"><br><br>
-        Message <br />
-        <textarea name="message" rows="10" cols="30">
-    Enter message here.
-    </textarea><br><br>
-        <input type="submit">
-    </form>*@
+@model ecard.Model.Greetings;
+@{ ViewBag.PageTitle = "Form";
+}
 
 <div class="container">
     <form action="Preview" method="post">
         <div class="form-group">
-            <label for="formGroupExampleInput">Friend's Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name" name="friendname" required>
+            <label asp-for="@Model.friendname"></label>
+            <input asp-for="@Model.friendname" type="text" class="form-control">
+            <span asp-validation-for="@Model.friendname" class="text-danger"></span>
+            <br />
 
-            <label for="exampleInputEmail1">Friend's Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="friendsemail" required>
+            <label asp-for="@Model.friendsemail"></label>
+            <input asp-for="@Model.friendsemail" type="email" class="form-control">
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <span asp-validation-for="@Model.friendsemail" class="text-danger"></span>
+            <br />
+
+            <label asp-for="@Model.subject"></label>
+            <input asp-for="@Model.subject" type="text" class="form-control">
+            <span asp-validation-for="@Model.subject" class="text-danger"></span>
+            <br />
+            <div>
+                <label asp-for="@Model.message"></label>
+                <textarea asp-for="@Model.message" class="form-control" maxlength="140"></textarea>
+
+                <span asp-validation-for="@Model.message" class="text-danger"></span>
+                <div class="countdown"></div>
+                <br />
+            </div>
+
+            <label asp-for="@Model.yourname"></label>
+            <input asp-for="@Model.yourname" type="text" class="form-control">
+            <span asp-validation-for="@Model.yourname" class="text-danger"></span>
+            <br />
+
+
+
+            <label asp-for="@Model.youremail"></label>
+            <input asp-for="@Model.youremail" type="email" class="form-control">
+            <span asp-validation-for="@Model.youremail" class="text-danger"></span>
+            <br />
+
+
+
+
+
+
+
             <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
-            <label for="formGroupExampleInput">Email Subject</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Enter something fun!" name="subject" required>
-            <label for="exampleFormControlTextarea1">Message</label>
-            <textarea maxlength="140" class="form-control" id="exampleFormControlTextarea1" name="message">Maximum of 140 characters.</textarea>
-            <div class="countdown"></div>
             <br />
-            <label for="formGroupExampleInput">Your Name</label>
-            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Name" name="yourname" required>
 
-            <label for="exampleInputEmail1">Your Email</label>
-            <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email" name="youremail" required>
-            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
 
-            <br />
+
             <div class="g-recaptcha" data-sitekey="6LeEpUUUAAAAAOCIrRrRoMaBkKkHnQfzAUzGJ52N"></div><br />
+
+
+
+
             <button type="submit" class="btn btn-primary">Send!</button>
         </div>
     </form>
 
 </div>
 @section scripts {
+    <script src="~/lib/ww-form-character-countdown.js"></script>
     <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
     <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
-    <!-- Begin Text Area Autosize-->
+    <!-- Begin Text Area Autosize
     <script src="~/lib/textarea-autosize/dist/jquery.textarea_autosize.js"></script>
     <script>
         $('textarea').textareaAutoSize();
     </script>
-    <!-- End Text Area Autosize-->
+    End Text Area Autosize-->
+
     <script src='https://www.google.com/recaptcha/api.js'></script>
-    <script src="~/lib/ww-form-character-countdown.js"></script>
+
 }
